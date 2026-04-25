@@ -1,6 +1,6 @@
 // ============================================================
 // app.js — Vení Nomas PWA
-// Audio: ElevenLabs MP3 con fallback a Text-to-Speech
+// Audio: ElevenLabs MP3 (solo ES) + TTS para EN y PT
 // ============================================================
 
 let currentLang = 'es';
@@ -192,7 +192,7 @@ function closePopup(id)  { document.getElementById(id).classList.add('hidden'); 
 function callEmergency() { window.location.href = 'tel:911'; }
 
 // ══════════════════════════════════════════════════════════════
-// SISTEMA DE AUDIO — ElevenLabs MP3 + fallback TTS
+// SISTEMA DE AUDIO — ElevenLabs MP3 (ES) + TTS (EN/PT)
 // ══════════════════════════════════════════════════════════════
 
 let audioElement  = null;
@@ -207,8 +207,7 @@ let speechSynth   = window.speechSynthesis;
 let fragmentos    = [];
 let fragIdx       = 0;
 let selectedVoice = null;
-const WORDS_PER_SEC = 2.2;
-const SKIP_SECS     = 10;
+const SKIP_SECS   = 10;
 
 // ── Construir ruta del MP3 ────────────────────────────────────
 function getMP3Path(circuitIdx, paradaIdx) {
@@ -254,7 +253,7 @@ async function startAudio() {
   await playParada(0);
 }
 
-// ── Reproducir parada específica ──────────────────────────────
+// ── Reproducir parada — ES usa MP3, EN/PT usa TTS ────────────
 async function playParada(idx) {
   if (!isPlaying || idx >= totalParadas) {
     isPlaying = false;
@@ -267,30 +266,31 @@ async function playParada(idx) {
   currentParada = idx;
   updatePlayerControls();
 
-  const mp3Path = getMP3Path(currentCircuitIdx, idx);
-  const existe  = await mp3Exists(mp3Path);
+  // Solo español usa MP3 de ElevenLabs
+  if (currentLang === 'es') {
+    const mp3Path = getMP3Path(currentCircuitIdx, idx);
+    const existe  = await mp3Exists(mp3Path);
 
-  if (existe) {
-    // ── Reproducir MP3 de ElevenLabs
-    usandoMP3    = true;
-    audioElement = new Audio(mp3Path);
-    audioElement.play();
+    if (existe) {
+      usandoMP3    = true;
+      audioElement = new Audio(mp3Path);
+      audioElement.play();
 
-    audioElement.onended = () => {
-      if (isPlaying) playParada(idx + 1);
-    };
+      audioElement.onended = () => {
+        if (isPlaying) playParada(idx + 1);
+      };
 
-    audioElement.onerror = () => {
-      // Fallback a TTS si falla el MP3
-      usandoMP3 = false;
-      playTTSParada(idx);
-    };
-
-  } else {
-    // ── Fallback: Text to Speech
-    usandoMP3 = false;
-    playTTSParada(idx);
+      audioElement.onerror = () => {
+        usandoMP3 = false;
+        playTTSParada(idx);
+      };
+      return;
+    }
   }
+
+  // Inglés y portugués siempre usan TTS
+  usandoMP3 = false;
+  playTTSParada(idx);
 }
 
 // ── Pausar ────────────────────────────────────────────────────
@@ -352,7 +352,6 @@ function skipForward() {
       audioElement.duration || 0
     );
   } else {
-    // En TTS saltamos a la siguiente parada
     if (currentParada < totalParadas - 1) {
       speechSynth.cancel();
       if (isPlaying) playParada(currentParada + 1);
@@ -371,7 +370,6 @@ function skipBackward() {
       0
     );
   } else {
-    // En TTS volvemos a la parada anterior
     if (currentParada > 0) {
       speechSynth.cancel();
       if (isPlaying) playParada(currentParada - 1);
@@ -381,7 +379,7 @@ function skipBackward() {
 }
 
 // ══════════════════════════════════════════════════════════════
-// TEXT TO SPEECH — fallback cuando no hay MP3
+// TEXT TO SPEECH — para EN y PT
 // ══════════════════════════════════════════════════════════════
 
 function loadVoices() {
