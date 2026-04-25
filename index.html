@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Vení Nomas — Rosario</title>
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0E4A5A"/>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Vení Nomas">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- PANTALLA 1: SPLASH -->
+  <div id="screen-splash">
+    <img src="assets/logo.png" alt="Vení Nomas" class="splash-logo-img"/>
+    <div class="splash-footer">
+      <p>Powered by <strong>NeoFlux</strong></p>
+    </div>
+  </div>
+
+
+  <!-- PANTALLA 2: BIENVENIDA -->
+  <div id="screen-welcome" class="screen hidden">
+    <div class="welcome-header">
+      <a href="https://www.rosario.gob.ar" target="_blank" class="muni-link">
+        <svg width="40" height="40" viewBox="0 0 40 40">
+          <circle cx="20" cy="20" r="19" fill="#0E4A5A"/>
+          <text x="20" y="26" text-anchor="middle" fill="white"
+                font-size="13" font-family="serif" font-weight="bold">M</text>
+        </svg>
+        <div class="muni-text">
+          <span>Municipalidad</span>
+          <span>de Rosario</span>
+        </div>
+      </a>
+      <div class="flags">
+        <button class="flag-btn active" onclick="setLang('es')">🇦🇷</button>
+        <button class="flag-btn" onclick="setLang('en')">🇺🇸</button>
+        <button class="flag-btn" onclick="setLang('pt')">🇧🇷</button>
+      </div>
+    </div>
+
+    <div class="welcome-center">
+      <img src="assets/logo-slogan.png" alt="Vení Nomas" class="welcome-logo-img"/>
+      <button class="btn-gold" onclick="goToCircuits()">
+        <span id="btn-start-text">EMPEZAR RECORRIDO</span>
+      </button>
+    </div>
+
+    <div class="welcome-footer">
+      <p>powered by <strong>NeoFlux</strong></p>
+    </div>
+  </div>
+
+
+  <!-- PANTALLA 3: CIRCUITOS -->
+  <div id="screen-circuits" class="screen hidden">
+    <div class="circuits-header">
+      <h2 id="circuits-title">ELEGÍ TU CIRCUITO</h2>
+    </div>
+    <div class="circuits-list" id="circuits-list"></div>
+  </div>
+
+
+  <!-- PANTALLA 4: DETALLE -->
+  <div id="screen-detail" class="screen hidden">
+    <div class="detail-scroll">
+      <div class="detail-content" id="detail-content"></div>
+    </div>
+    <div class="detail-buttons">
+
+      <button class="btn-gold" onclick="openMap()">
+        <span id="btn-map-text">VENÍ, TE ACOMPAÑO (VER MAPA)</span>
+      </button>
+
+      <!-- SEGUIR EXPERIENCIA -->
+      <button class="btn-grey" onclick="goToExtras()">
+        <span id="btn-extras-text">SEGUIR EXPERIENCIA</span>
+      </button>
+
+      <button class="btn-primary" id="btn-audio" onclick="toggleAudio()">
+        <span id="btn-audio-text">🎙️ ESCUCHAR GUÍA</span>
+      </button>
+
+      <div id="player-controls" class="player-controls" style="display:none;">
+        <button class="btn-skip" onclick="skipBackward()">⏪ 10s</button>
+        <div class="progress-wrap">
+          <div class="progress-bar">
+            <div id="progress-bar-fill" class="progress-fill"></div>
+          </div>
+          <span id="progress-label" class="progress-label">0:00 / 0:00</span>
+        </div>
+        <button class="btn-skip" onclick="skipForward()">10s ⏩</button>
+      </div>
+
+      <button class="btn-dark" onclick="nextStop()">
+        <span id="btn-next-text">VOLVER A CIRCUITOS</span>
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- PANTALLA 5: ÚLTIMA PANTALLA -->
+  <div id="screen-extras" class="screen hidden">
+    <div class="extras-center">
+      <img src="assets/logo.png" alt="Vení Nomas" class="extras-logo-img"/>
+      <div class="extras-slogan">
+        <p class="slogan-q">¿Qué te gusta?</p>
+        <p class="slogan-a">Yo te acompaño</p>
+      </div>
+      <div class="extras-buttons">
+
+        <!-- Botón azul DÓNDE COMER — publicidad -->
+        <button class="btn-primary" id="btn-donde-ir">
+          <span id="btn-donde-ir-text">DÓNDE COMER</span>
+        </button>
+
+        <button class="btn-gold" onclick="showRadios()">
+          <span id="btn-radios-text">RADIOS</span>
+        </button>
+
+        <!-- INSTAGRAM en mayúsculas -->
+        <button class="btn-gold" onclick="showInstagram()">
+          <span id="btn-instagram-text">INSTAGRAM</span>
+        </button>
+
+        <button class="btn-gold" onclick="callEmergency()">
+          <span id="btn-emergency-text">EMERGENCIAS</span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- POPUP RADIOS -->
+  <div id="popup-radios" class="popup-overlay hidden" onclick="closePopup('popup-radios')">
+    <div class="popup-box" onclick="event.stopPropagation()">
+      <h3>Escuchar Radio:</h3>
+      <a href="https://www.redboing.com" target="_blank">Radio Boing</a>
+      <a href="https://lt3.com.ar" target="_blank">LT3</a>
+      <a href="https://www.lt8.com.ar" target="_blank">LT8</a>
+      <a href="https://radiofonica.com" target="_blank">Radiofónica 100.7</a>
+    </div>
+  </div>
+
+
+  <!-- POPUP INSTAGRAM -->
+  <div id="popup-instagram" class="popup-overlay hidden" onclick="closePopup('popup-instagram')">
+    <div class="popup-box" onclick="event.stopPropagation()">
+      <h3>Instagram:</h3>
+      <a href="https://instagram.com/rosarioporconocer" target="_blank">@rosarioporconocer</a>
+      <a href="https://instagram.com/rosariociudadok" target="_blank">@rosariociudadok</a>
+      <a href="https://instagram.com/rosarioturismo" target="_blank">@rosarioturismo</a>
+      <a href="https://instagram.com/rosariourbana" target="_blank">@rosariourbana</a>
+      <a href="https://instagram.com/rosariotres" target="_blank">@rosariotres</a>
+      <a href="https://instagram.com/diariolacapital" target="_blank">@diariolacapital</a>
+      <a href="https://instagram.com/muni_rosario" target="_blank">@muni_rosario</a>
+      <a href="https://instagram.com/somosrosariook" target="_blank">@somosrosariook</a>
+      <a href="https://instagram.com/callerecreativarosario" target="_blank">@callerecreativa.rosario</a>
+    </div>
+  </div>
+
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/circuits.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,560 @@
+/* ============================================================
+   styles.css — Vení Nomas PWA
+   ============================================================ */
+
+:root {
+  --primary:   #0E4A5A;
+  --secondary: #D39A2F;
+  --white:     #FFFFFF;
+  --bg:        #F2F2F2;
+  --text-main: #1F1F1F;
+  --text-sec:  #8A8A8A;
+  --btn-grey:  #9E9E9E;
+  --btn-dark:  #555555;
+  --radius:    50px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Nunito', sans-serif;
+  background: var(--white);
+  color: var(--text-main);
+}
+
+.hidden { display: none !important; }
+
+.screen {
+  position: fixed;
+  inset: 0;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ══════════════════════════════════════
+   PANTALLA 1 — SPLASH
+══════════════════════════════════════ */
+#screen-splash {
+  position: fixed;
+  inset: 0;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-logo-img {
+  width: 85vw;
+  max-width: 380px;
+  height: auto;
+  object-fit: contain;
+}
+
+.splash-footer {
+  position: absolute;
+  bottom: 36px;
+  text-align: center;
+}
+
+.splash-footer p {
+  font-size: 14px;
+  color: var(--text-sec);
+}
+
+.splash-footer strong {
+  font-weight: 800;
+  color: var(--text-sec);
+}
+
+/* ══════════════════════════════════════
+   PANTALLA 2 — BIENVENIDA
+══════════════════════════════════════ */
+.welcome-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  flex-shrink: 0;
+}
+
+.muni-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.muni-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.muni-text span {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.flags {
+  display: flex;
+  gap: 8px;
+}
+
+.flag-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+  opacity: 0.4;
+  transition: opacity 0.2s, transform 0.15s;
+  padding: 2px;
+}
+
+.flag-btn.active {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.flag-btn:active {
+  transform: scale(0.92);
+}
+
+.welcome-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px 20px;
+  gap: 40px;
+}
+
+.welcome-logo-img {
+  width: 85vw;
+  max-width: 380px;
+  height: auto;
+  object-fit: contain;
+}
+
+.welcome-footer {
+  padding: 16px 20px 32px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.welcome-footer p {
+  font-size: 13px;
+  color: var(--text-sec);
+}
+
+.welcome-footer strong {
+  font-weight: 700;
+}
+
+/* ══════════════════════════════════════
+   PANTALLA 3 — CIRCUITOS
+══════════════════════════════════════ */
+#screen-circuits {
+  background: var(--bg);
+}
+
+.circuits-header {
+  padding: 48px 24px 28px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+#circuits-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: 1.2px;
+}
+
+.circuits-list {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 24px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.circuits-list::-webkit-scrollbar { display: none; }
+
+/* ══════════════════════════════════════
+   PANTALLA 4 — DETALLE
+══════════════════════════════════════ */
+#screen-detail { background: var(--white); }
+
+.detail-scroll {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.detail-scroll::-webkit-scrollbar { display: none; }
+
+.detail-content {
+  padding: 32px 24px 24px;
+}
+
+.detail-circuit-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.detail-circuit-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.5px;
+  margin-bottom: 28px;
+}
+
+.detail-stop {
+  margin-bottom: 28px;
+}
+
+.detail-stop-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.detail-guide-label {
+  font-style: italic;
+  font-size: 15px;
+  color: var(--text-sec);
+  margin-bottom: 10px;
+}
+
+.detail-guide-text {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--text-main);
+}
+
+.detail-guide-text p {
+  margin-bottom: 18px;
+}
+
+.detail-separator {
+  height: 2px;
+  background: linear-gradient(to right, var(--primary), transparent);
+  margin: 32px 0;
+  border-radius: 2px;
+}
+
+.detail-buttons {
+  flex-shrink: 0;
+  padding: 12px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--white);
+  border-top: 1px solid #F0F0F0;
+}
+
+/* ══════════════════════════════════════
+   REPRODUCTOR DE AUDIO
+══════════════════════════════════════ */
+.player-controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.btn-skip {
+  padding: 10px 14px;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 24px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-skip:active {
+  background: #093745;
+  transform: scale(0.95);
+}
+
+.progress-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #E0E0E0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.5s;
+}
+
+.progress-label {
+  font-size: 11px;
+  color: var(--text-sec);
+  text-align: center;
+}
+
+/* ══════════════════════════════════════
+   PANTALLA 5 — EXTRAS
+══════════════════════════════════════ */
+#screen-extras { background: var(--white); }
+
+.extras-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.extras-logo-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.extras-slogan {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.extras-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.slogan-q {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--secondary);
+  line-height: 1.2;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.slogan-a {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--primary);
+  text-align: center;
+}
+
+/* ══════════════════════════════════════
+   BOTONES
+══════════════════════════════════════ */
+.btn-gold {
+  width: 100%;
+  padding: 16px;
+  background: var(--secondary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(211,154,47,0.4);
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-gold:active {
+  background: #b8841f;
+  transform: scale(0.97);
+}
+
+.btn-grey {
+  width: 100%;
+  padding: 14px;
+  background: var(--btn-grey);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-grey:active {
+  background: #888;
+  transform: scale(0.97);
+}
+
+.btn-dark {
+  width: 100%;
+  padding: 14px;
+  background: var(--btn-dark);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-dark:active {
+  background: #333;
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-primary:active {
+  background: #093745;
+  transform: scale(0.97);
+}
+
+.btn-primary.playing {
+  background: #1a7a94;
+}
+
+.btn-primary.paused {
+  background: #b8841f;
+}
+
+.circuit-btn {
+  width: 100%;
+  padding: 20px 24px;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(14,74,90,0.25);
+  transition: background 0.2s, transform 0.15s;
+}
+
+.circuit-btn:active {
+  background: #093745;
+  transform: scale(0.97);
+}
+
+/* ══════════════════════════════════════
+   POPUPS
+══════════════════════════════════════ */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-box {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 28px 24px;
+  width: 85%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.popup-box h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.popup-box a {
+  font-size: 16px;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 4px 0;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.popup-box a:last-child {
+  border-bottom: none;
+}
+
+.popup-box a:active {
+  color: var(--secondary);
+}
+
+/* ══════════════════════════════════════
+   SAFE AREA — iPhone/Android notch
+══════════════════════════════════════ */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .detail-buttons,
+  .welcome-footer,
+  .splash-footer {
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  }
+}
