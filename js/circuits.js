@@ -71,9 +71,9 @@ const CIRCUITS = [
     es: { nombre: "Rosario Cultural" },
     en: { nombre: "Cultural Rosario" },
     pt: { nombre: "Rosário Cultural" },
-    origen:    "-32.9502,-60.6375",
-    destino:   "-32.9461,-60.6322",
-    waypoints: "-32.9465,-60.6328",
+    origen:    "-32.95254,-60.63506",
+    destino:   "-32.9451032,-60.6443826",
+    waypoints: "-32.94712,-60.63323",
     paradas: [
       {
         es: { titulo: "Punto 2.1: Teatro El Círculo", guion: `Párense un segundo y miren esta mole de estilo italiano. Estamos frente al Teatro El Círculo, inaugurado en 1904 como Teatro de la Ópera. Rosario en esa época era una potencia mundial; el puerto desbordaba de trigo y la plata sobraba.\n\n¿Saben quién vino a cantar acá? El mismísimo Enrico Caruso, el mejor tenor de la historia. El tipo se paró ahí adentro, tiró una nota y dijo: en este lugar mi voz suena mejor que en el Metropolitan de Nueva York. Pero el secreto más grande no está en el escenario, está abajo: las Catacumbas.` },
@@ -214,7 +214,7 @@ const CIRCUITS = [
     en: { nombre: "Parks and River" },
     pt: { nombre: "Parques e Rio" },
     origen:    "-32.9565,-60.6240",
-    destino:   "-32.9450,-60.6200",
+    destino:   "-32.94498,-60.62874",
     waypoints: "-32.9552,-60.6255",
     paradas: [
       {

@@ -353,19 +353,14 @@ html, body {
   width: 100px;
   height: 100px;
   object-fit: contain;
-  margin-bottom: 12px;
-}
-
-.extras-slogan {
-  text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .extras-buttons {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .slogan-q {
@@ -384,6 +379,148 @@ html, body {
   font-weight: 800;
   color: var(--primary);
   text-align: center;
+}
+
+/* ══════════════════════════════════════
+   PANTALLA 6 — LISTADO
+══════════════════════════════════════ */
+#screen-listado { background: var(--bg); }
+
+.listado-scroll {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.listado-scroll::-webkit-scrollbar { display: none; }
+
+.listado-header {
+  padding: 36px 24px 24px;
+  background: var(--primary);
+  text-align: center;
+}
+
+.listado-titulo-italic {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 8px;
+}
+
+.listado-subtitulo {
+  font-size: 15px;
+  color: var(--white);
+  opacity: 0.9;
+}
+
+.listado-items {
+  padding: 16px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.listado-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.listado-card:active { transform: scale(0.98); }
+
+.listado-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.listado-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #F0F0F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.listado-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.listado-nombre {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.listado-tipo {
+  font-size: 13px;
+  color: var(--text-sec);
+}
+
+.listado-distancia {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.listado-dias {
+  font-size: 12px;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.badge-destacado {
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--secondary);
+  color: var(--white);
+  padding: 2px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.btn-ir {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  flex-shrink: 0;
+  min-width: 52px;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.btn-ir:active { background: #093745; }
+
+.listado-footer {
+  flex-shrink: 0;
+  padding: 12px 24px 24px;
+  background: var(--white);
+  border-top: 1px solid #F0F0F0;
 }
 
 /* ══════════════════════════════════════
@@ -554,7 +691,8 @@ html, body {
 @supports (padding: env(safe-area-inset-bottom)) {
   .detail-buttons,
   .welcome-footer,
-  .splash-footer {
+  .splash-footer,
+  .listado-footer {
     padding-bottom: calc(16px + env(safe-area-inset-bottom));
   }
 }
