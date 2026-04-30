@@ -1,9 +1,4 @@
-// ============================================================
-// service-worker.js — Vení Nomas PWA
-// ============================================================
-
 const CACHE_NAME = 'veni-nomas-v9';
-
 const ASSETS = [
   './',
   './index.html',
@@ -18,7 +13,6 @@ const ASSETS = [
   './assets/logo.png',
   './assets/logo-slogan.png'
 ];
-
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -26,22 +20,15 @@ self.addEventListener('install', event => {
       .then(() => self.skipWaiting())
   );
 });
-
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
-      Promise.all(
-        keys
-          .filter(key => key !== CACHE_NAME)
-          .map(key => caches.delete(key))
-      )
+      Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))
     ).then(() => self.clients.claim())
   );
 });
-
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request)
-      .then(cached => cached || fetch(event.request))
+    caches.match(event.request).then(cached => cached || fetch(event.request))
   );
 });
