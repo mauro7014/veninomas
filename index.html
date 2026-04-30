@@ -1,38 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
-  <title>Vení Nomas — Rosario</title>
-
-<!-- Icono de pestaña y búsqueda -->
-<link rel="icon" href="assets/logo.png" type="image/png">
-
-<!-- Logo para Google -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Vení Nomas",
-  "url": "https://www.veninomas.com",
-  "logo": "https://www.veninomas.com/assets/logo.png"
-}
-</script>
-
-<link rel="manifest" href="manifest.json">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Vení Nomas — Rosario</title>
-
+  <link rel="icon" href="assets/logo.png" type="image/png">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0E4A5A"/>
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Vení Nomas">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -44,7 +25,6 @@
       <p>Powered by <strong>NeoFlux</strong></p>
     </div>
   </div>
-
 
   <!-- PANTALLA 2: BIENVENIDA -->
   <div id="screen-welcome" class="screen hidden">
@@ -66,19 +46,16 @@
         <button class="flag-btn" onclick="setLang('pt')">🇧🇷</button>
       </div>
     </div>
-
     <div class="welcome-center">
       <img src="assets/logo-slogan.png" alt="Vení Nomas" class="welcome-logo-img"/>
       <button class="btn-gold" onclick="goToCircuits()">
         <span id="btn-start-text">EMPEZAR RECORRIDO</span>
       </button>
     </div>
-
     <div class="welcome-footer">
       <p>powered by <strong>NeoFlux</strong></p>
     </div>
   </div>
-
 
   <!-- PANTALLA 3: CIRCUITOS -->
   <div id="screen-circuits" class="screen hidden">
@@ -88,27 +65,21 @@
     <div class="circuits-list" id="circuits-list"></div>
   </div>
 
-
   <!-- PANTALLA 4: DETALLE -->
   <div id="screen-detail" class="screen hidden">
     <div class="detail-scroll">
       <div class="detail-content" id="detail-content"></div>
     </div>
     <div class="detail-buttons">
-
       <button class="btn-gold" onclick="openMap()">
         <span id="btn-map-text">VENÍ, TE ACOMPAÑO (VER MAPA)</span>
       </button>
-
-      <!-- SEGUIR EXPERIENCIA -->
       <button class="btn-grey" onclick="goToExtras()">
         <span id="btn-extras-text">SEGUIR EXPERIENCIA</span>
       </button>
-
       <button class="btn-primary" id="btn-audio" onclick="toggleAudio()">
         <span id="btn-audio-text">🎙️ ESCUCHAR GUÍA</span>
       </button>
-
       <div id="player-controls" class="player-controls" style="display:none;">
         <button class="btn-skip" onclick="skipBackward()">⏪ 10s</button>
         <div class="progress-wrap">
@@ -119,47 +90,50 @@
         </div>
         <button class="btn-skip" onclick="skipForward()">10s ⏩</button>
       </div>
-
       <button class="btn-dark" onclick="nextStop()">
         <span id="btn-next-text">VOLVER A CIRCUITOS</span>
       </button>
-
     </div>
   </div>
-
 
   <!-- PANTALLA 5: ÚLTIMA PANTALLA -->
   <div id="screen-extras" class="screen hidden">
     <div class="extras-center">
       <img src="assets/logo.png" alt="Vení Nomas" class="extras-logo-img"/>
-      <div class="extras-slogan">
-        <p class="slogan-q">¿Qué te gusta?</p>
-        <p class="slogan-a">Yo te acompaño</p>
-      </div>
       <div class="extras-buttons">
-
-        <!-- Botón azul DÓNDE COMER — publicidad -->
-        <button class="btn-primary" id="btn-donde-ir">
+        <button class="btn-primary" onclick="abrirFerias()">
+          <span id="btn-ferias-text">FERIAS Y PASEOS</span>
+        </button>
+        <button class="btn-primary" onclick="abrirDormir()">
+          <span id="btn-dormir-text">DÓNDE DORMIR</span>
+        </button>
+        <button class="btn-primary" onclick="abrirComer()">
           <span id="btn-donde-ir-text">DÓNDE COMER</span>
         </button>
-
         <button class="btn-gold" onclick="showRadios()">
           <span id="btn-radios-text">RADIOS</span>
         </button>
-
-        <!-- INSTAGRAM en mayúsculas -->
         <button class="btn-gold" onclick="showInstagram()">
           <span id="btn-instagram-text">INSTAGRAM</span>
         </button>
-
         <button class="btn-gold" onclick="callEmergency()">
           <span id="btn-emergency-text">EMERGENCIAS</span>
         </button>
-
       </div>
     </div>
   </div>
 
+  <!-- PANTALLA 6: LISTADO -->
+  <div id="screen-listado" class="screen hidden">
+    <div class="listado-scroll">
+      <div id="listado-content"></div>
+    </div>
+    <div class="listado-footer">
+      <button class="btn-dark" onclick="showScreen('screen-extras')">
+        <span id="listado-back-text">← VOLVER</span>
+      </button>
+    </div>
+  </div>
 
   <!-- POPUP RADIOS -->
   <div id="popup-radios" class="popup-overlay hidden" onclick="closePopup('popup-radios')">
@@ -171,7 +145,6 @@
       <a href="https://radiofonica.com" target="_blank">Radiofónica 100.7</a>
     </div>
   </div>
-
 
   <!-- POPUP INSTAGRAM -->
   <div id="popup-instagram" class="popup-overlay hidden" onclick="closePopup('popup-instagram')">
@@ -189,9 +162,9 @@
     </div>
   </div>
 
-
-  <!-- Scripts -->
+  <!-- Scripts — ORDEN IMPORTANTE -->
   <script src="js/storage.js"></script>
+  <script src="js/data.js"></script>
   <script src="js/circuits.js"></script>
   <script src="js/routes.js"></script>
   <script src="js/map.js"></script>
