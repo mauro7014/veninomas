@@ -3,7 +3,7 @@
 // Cache para uso offline
 // ============================================================
 
-const CACHE_NAME = 'veni-nomas-v1';
+const CACHE_NAME = 'veni-nomas-v5';
 
 const ASSETS = [
   './',
