@@ -1,4 +1,4 @@
-§// ============================================================
+// ============================================================
 // data.js — Vení Nomas PWA
 // Editá este archivo para agregar o sacar negocios
 // ============================================================
@@ -13,9 +13,9 @@ const DATA = {
       dias: { es: "Sábados", en: "Saturdays", pt: "Sábados" },
       horario: "10 a 18hs",
       icono: "🛍️",
-      lat: -32.9467,
-      lng: -60.6394,
-      maps: "https://maps.google.com/?q=-32.9467,-60.6394"
+      lat: -32.9313313,
+      lng: -60.6541633,
+      maps: "https://maps.google.com/?q=-32.9313313,-60.6541633"
     },
     {
       nombre: "Feria del Parque Independencia",
@@ -23,9 +23,9 @@ const DATA = {
       dias: { es: "Sábados y domingos", en: "Saturdays and Sundays", pt: "Sábados e domingos" },
       horario: "9 a 18hs",
       icono: "🎨",
-      lat: -32.9572,
-      lng: -60.6585,
-      maps: "https://maps.google.com/?q=-32.9572,-60.6585"
+      lat: -32.9637769,
+      lng: -60.6587001,
+      maps: "https://maps.google.com/?q=-32.9637769,-60.6587001"
     },
     {
       nombre: "Mercado de Pulgas",
@@ -33,9 +33,9 @@ const DATA = {
       dias: { es: "Domingos", en: "Sundays", pt: "Domingos" },
       horario: "9 a 14hs",
       icono: "🏺",
-      lat: -32.9378,
-      lng: -60.6558,
-      maps: "https://maps.google.com/?q=-32.9378,-60.6558"
+      lat: -32.945263,
+      lng: -60.6321116,
+      maps: "https://maps.google.com/?q=-32.945263,-60.6321116"
     },
     {
       nombre: "Feria del Bajo",
@@ -43,9 +43,9 @@ const DATA = {
       dias: { es: "Sábados y domingos", en: "Saturdays and Sundays", pt: "Sábados e domingos" },
       horario: "16 a 21hs",
       icono: "🎵",
-      lat: -32.9431,
-      lng: -60.6288,
-      maps: "https://maps.google.com/?q=-32.9431,-60.6288"
+      lat: -32.945263,
+      lng: -60.6321116,
+      maps: "https://maps.google.com/?q=-32.9452263,-60.6321116"
     },
     {
       nombre: "Paseo de las Flores",
@@ -53,19 +53,19 @@ const DATA = {
       dias: { es: "Lunes a sábados", en: "Monday to Saturday", pt: "Segunda a sábado" },
       horario: "8 a 13hs",
       icono: "🌸",
-      lat: -32.9520,
-      lng: -60.6480,
-      maps: "https://maps.google.com/?q=-32.9520,-60.6480"
+      lat: -32.9469192,
+      lng: -60.6559335,
+      maps: "https://maps.google.com/?q=-32.9469192,-60.6559335"
     },
     {
-      nombre: "Mercado Norte",
+      nombre: "Mercado del Patio",
       tipo: "Gastronomía, productos regionales",
       dias: { es: "Lunes a sábados", en: "Monday to Saturday", pt: "Segunda a sábado" },
       horario: "8 a 20hs",
       icono: "🥬",
-      lat: -32.9350,
-      lng: -60.6620,
-      maps: "https://maps.google.com/?q=-32.9350,-60.6620"
+      lat: -32.9372173,
+      lng: -60.6657257,
+      maps: "https://maps.google.com/?q=-32.9372173,-60.6657257"
     }
   ],
 
@@ -120,8 +120,8 @@ const DATA = {
       tipo: "Carnes, Asado argentino",
       icono: "🥩",
       destacado: true,
-      lat: -32.9395,
-      lng: -60.6330,
+      lat: -32.934412,
+      lng: -60.6453259,
       maps: "https://maps.google.com/?q=El+Viejo+Balcon+Rosario",
       web: "https://www.elviejobalcon.com.ar"
     },
@@ -130,8 +130,8 @@ const DATA = {
       tipo: "Café, Medialunas, Brunch",
       icono: "☕",
       destacado: true,
-      lat: -32.9502,
-      lng: -60.6375,
+      lat: -32.9523439,
+      lng: -60.635262,
       maps: "https://maps.google.com/?q=Cafe+de+la+Opera+Rosario",
       web: "https://www.cafedelaopera.com.ar"
     },
@@ -140,20 +140,20 @@ const DATA = {
       tipo: "Parrilla, Carnes, Vinos",
       icono: "🔥",
       destacado: true,
-      lat: -32.9450,
-      lng: -60.6400,
+      lat: -32.9561207,
+      lng: -60.6465385,
       maps: "https://maps.google.com/?q=La+Estancia+Rosario",
       web: "https://www.laestanciarosario.com.ar"
     },
     {
-      nombre: "Sushi Paraná",
-      tipo: "Sushi, Japonesa, Fusión",
-      icono: "🍣",
+      nombre: "Bajada España",
+      tipo: "parrilla y Restaurante con vista al rio",
+      icono: "🔥",
       destacado: false,
-      lat: -32.9460,
-      lng: -60.6320,
-      maps: "https://maps.google.com/?q=Sushi+Parana+Rosario",
-      web: "https://www.sushiparana.com.ar"
+      lat: -32.9337403,
+      lng: -60.6436068,
+      maps: "https://maps.app.goo.gl/9TzU5X3XwXfXfXfX8",
+      web: "https://www.instagram.com/bajadaespana/"
     },
     {
       nombre: "Don Ferro",
