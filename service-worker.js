@@ -1,9 +1,8 @@
 // ============================================================
 // service-worker.js — Vení Nomas PWA
-// Cache para uso offline
 // ============================================================
 
-const CACHE_NAME = 'veni-nomas-v5';
+const CACHE_NAME = 'veni-nomas-v9';
 
 const ASSETS = [
   './',
@@ -12,12 +11,14 @@ const ASSETS = [
   './css/styles.css',
   './js/app.js',
   './js/circuits.js',
+  './js/data.js',
   './js/routes.js',
   './js/map.js',
-  './js/storage.js'
+  './js/storage.js',
+  './assets/logo.png',
+  './assets/logo-slogan.png'
 ];
 
-// Instalar — cachear todos los assets
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -26,7 +27,6 @@ self.addEventListener('install', event => {
   );
 });
 
-// Activar — borrar caches viejos
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
@@ -39,7 +39,6 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Fetch — Cache first, network fallback
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
