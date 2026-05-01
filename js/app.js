@@ -245,8 +245,8 @@ function abrirDormir() { renderListado('dormir'); showScreen('screen-listado'); 
 function abrirComer()  { renderListado('comer');  showScreen('screen-listado'); }
 
 function renderListado(tipo) {
-  const items = DATA[tipo];
-  const t     = UI[currentLang];
+  const items   = DATA[tipo];
+  const t       = UI[currentLang];
   const esFeria = tipo === 'ferias';
 
   let html = `
@@ -282,10 +282,15 @@ function renderListado(tipo) {
       ? `onclick="window.open('${item.maps}','_blank')"`
       : `onclick="abrirWeb(${item._idx},'${tipo}')"`;
 
+    // Logo o emoji
+    const iconoHTML = item.icono && item.icono.includes('.')
+      ? `<img src="${item.icono}" alt="${item.nombre}" style="width:48px;height:48px;object-fit:contain;border-radius:50%;">`
+      : item.icono;
+
     html += `
       <div class="listado-card" ${accion}>
         <div class="listado-card-top">
-          <div class="listado-logo">${item.icono}</div>
+          <div class="listado-logo">${iconoHTML}</div>
           <div class="listado-info">
             <div class="listado-nombre">${item.nombre} ${badgeHTML}</div>
             <div class="listado-tipo">🍴 ${item.tipo}</div>
@@ -343,10 +348,12 @@ function toggleAudio() {
 
 async function startAudio() {
   stopAudio();
-  totalParadas = CIRCUITS[currentCircuitIdx].paradas.length;
+  totalParadas  = CIRCUITS[currentCircuitIdx].paradas.length;
   currentParada = 0;
-  isPlaying = true; isPaused = false;
-  updateAudioButton(); updatePlayerControls();
+  isPlaying     = true;
+  isPaused      = false;
+  updateAudioButton();
+  updatePlayerControls();
   await playParada(0);
 }
 

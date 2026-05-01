@@ -12,7 +12,7 @@ const DATA = {
       tipo: "Ropa vintage, accesorios, diseño",
       dias: { es: "Sábados", en: "Saturdays", pt: "Sábados" },
       horario: "10 a 18hs",
-      icono: "🛍️",
+      icono: "assets/logos/roperito.png",
       lat: -32.9313313,
       lng: -60.6541633,
       maps: "https://maps.google.com/?q=-32.9313313,-60.6541633"
@@ -22,20 +22,20 @@ const DATA = {
       tipo: "Artesanías, diseño, gastronomía",
       dias: { es: "Sábados y domingos", en: "Saturdays and Sundays", pt: "Sábados e domingos" },
       horario: "9 a 18hs",
-      icono: "🎨",
+      icono: "assets/logos/feria-parque.png",
       lat: -32.9637769,
       lng: -60.6587001,
       maps: "https://maps.google.com/?q=-32.9637769,-60.6587001"
     },
     {
-      nombre: "Mercado de Pulgas",
-      tipo: "Antigüedades, coleccionables",
-      dias: { es: "Domingos", en: "Sundays", pt: "Domingos" },
-      horario: "9 a 14hs",
-      icono: "🏺",
-      lat: -32.945263,
-      lng: -60.6321116,
-      maps: "https://maps.google.com/?q=-32.945263,-60.6321116"
+      nombre: "Mercado de Pulgas del Bajo",
+      tipo: "Artesanías, antigüedades, coleccionables",
+      dias: { es: "Sábados, domingos y feriados", en: "Saturdays, Sundays and holidays", pt: "Sábados, domingos e feriados" },
+      horario: "10 a 21hs",
+      icono: "assets/logos/mercado-pulgas.png",
+      lat: -32.9477,
+      lng: -60.6303,
+      maps: "https://maps.google.com/?q=Mercado+de+Pulgas+del+Bajo+Rosario+Belgrano+y+Buenos+Aires"
     },
     {
       nombre: "Feria del Bajo",
@@ -43,26 +43,26 @@ const DATA = {
       dias: { es: "Sábados y domingos", en: "Saturdays and Sundays", pt: "Sábados e domingos" },
       horario: "16 a 21hs",
       icono: "🎵",
-      lat: -32.945263,
-      lng: -60.6321116,
-      maps: "https://maps.google.com/?q=-32.9452263,-60.6321116"
+      lat: -32.9431,
+      lng: -60.6288,
+      maps: "https://maps.google.com/?q=-32.9431,-60.6288"
     },
     {
-      nombre: "Paseo de las Flores",
-      tipo: "Plantas, flores, viveros",
-      dias: { es: "Lunes a sábados", en: "Monday to Saturday", pt: "Segunda a sábado" },
-      horario: "8 a 13hs",
-      icono: "🌸",
-      lat: -32.9469192,
-      lng: -60.6559335,
-      maps: "https://maps.google.com/?q=-32.9469192,-60.6559335"
+      nombre: "Feria del Boulevard",
+      tipo: "Artesanías, diseño, manualidades",
+      dias: { es: "Sábados y domingos", en: "Saturdays and Sundays", pt: "Sábados e domingos" },
+      horario: "10 a 20hs",
+      icono: "assets/logos/feria-boulevard.png",
+      lat: -32.9572,
+      lng: -60.6585,
+      maps: "https://maps.google.com/?q=Feria+del+Boulevard+Rosario+Oroño+y+Rivadavia"
     },
     {
       nombre: "Mercado del Patio",
       tipo: "Gastronomía, productos regionales",
       dias: { es: "Lunes a sábados", en: "Monday to Saturday", pt: "Segunda a sábado" },
       horario: "8 a 20hs",
-      icono: "🥬",
+      icono: "assets/logos/mercado-patio.png",
       lat: -32.9372173,
       lng: -60.6657257,
       maps: "https://maps.google.com/?q=-32.9372173,-60.6657257"
@@ -73,7 +73,7 @@ const DATA = {
   dormir: [
     {
       nombre: "Hotel Ros Tower",
-      tipo: "Hotel 4 estrellas · Vista al río",
+      tipo: "Hotel 5 estrellas · Vista al río",
       icono: "🏨",
       destacado: true,
       lat: -32.9412,
@@ -147,12 +147,12 @@ const DATA = {
     },
     {
       nombre: "Bajada España",
-      tipo: "parrilla y Restaurante con vista al rio",
+      tipo: "Parrilla y Restaurante con vista al río",
       icono: "🔥",
       destacado: false,
       lat: -32.9337403,
       lng: -60.6436068,
-      maps: "https://maps.app.goo.gl/9TzU5X3XwXfXfXfX8",
+      maps: "https://maps.google.com/?q=-32.9337403,-60.6436068",
       web: "https://www.instagram.com/bajadaespana/"
     },
     {
