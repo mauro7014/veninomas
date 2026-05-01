@@ -38,14 +38,14 @@ const DATA = {
       maps: "https://maps.google.com/?q=Mercado+de+Pulgas+del+Bajo+Rosario+Belgrano+y+Buenos+Aires"
     },
     {
-      nombre: "Feria del Bajo",
-      tipo: "Arte urbano, música en vivo",
-      dias: { es: "Sábados y domingos", en: "Saturdays and Sundays", pt: "Sábados e domingos" },
-      horario: "16 a 21hs",
+      nombre: "calle Recreativa",
+      tipo: "Paseo al aire libre,Arte urbano, música en vivo",
+      dias: { es: "Domingos", en: "Sundays", pt: "Domingos" },
+      horario: "9 a 12hs",
       icono: "🎵",
-      lat: -32.945263,
-      lng: -60.6701945,
-      maps: "https://maps.google.com/?q=-32.945263,-60.6701945"
+      lat: -32.9309063,
+      lng: -60.6500612,
+      maps: "https://maps.google.com/?q=-32.9309063,-60.6500612"
     },
     {
       nombre: "Feria del Boulevard",
